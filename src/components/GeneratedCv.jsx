@@ -1,3 +1,5 @@
+
+
 export default function GeneratedCv(props){
 
     const generalInfo = props.general;
@@ -5,7 +7,7 @@ export default function GeneratedCv(props){
     const education = props.education;
 
     console.log(generalInfo);
-    console.log(generalInfo.title);
+   
     let fields=[generalInfo, experience, education];
     return(
         <>

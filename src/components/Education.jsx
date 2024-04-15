@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ReusableForm from "./ReusableForm";
 
-export default function Education(props){
+export default function Education({data, setData}){
 
 const [formData, setFormData] = useState({
     schoolName: '',
@@ -22,6 +22,6 @@ const fields = [
   
 
   return <ReusableForm 
-  formData={formData} setFormData={setFormData} fields={fields} title="Education" />;
+  formData={data} setFormData={setData} fields={fields} title="Education" />;
 
 }

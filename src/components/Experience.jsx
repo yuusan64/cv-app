@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ReusableForm from "./ReusableForm";
 
-export default function Experience(props){
+export default function Experience({data, setData}){
 
     const [formData, setFormData] = useState({
         company: '',
@@ -21,5 +21,5 @@ export default function Experience(props){
         { id: 'description', label:'Description',     type: 'text',  placeholder: 'Description'}
     ]
     
-    return <ReusableForm formData={formData} setFormData={setFormData} fields={fields} title="Experience" />;
+    return <ReusableForm formData={data} setFormData={setData} fields={fields} title="Experience" />;
     }

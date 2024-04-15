@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReusableForm from "./ReusableForm";
 
 export default function Education(props){
 
@@ -11,17 +12,6 @@ const [formData, setFormData] = useState({
 })    
 
 
-const handleEducation =(event)=>{
-
-    const {name, value} = event.target;
-
-    setFormData(prevFormData => ({
-        ...prevFormData,
-        [name]: value
-    }));
-
-}
-
 const fields = [
     { id: 'schoolName', label: 'School',     type: 'text',  placeholder: 'Enter School / University' },
     { id: 'degree',     label: 'Degree',     type: 'text',  placeholder: 'Enter Degree / Field Of Study'},
@@ -29,28 +19,9 @@ const fields = [
     { id: 'endDate',    label: 'End Date',   type: 'date'},
     { id: 'location',   label: 'Location',   type: 'text',  placeholder: 'City, Country'},
 ]
+  
 
-    return(
-    <>
+  return <ReusableForm 
+  formData={formData} setFormData={setFormData} fields={fields} title="Education" />;
 
-    <h1>{props.title}</h1>
-     <form>
-       
-       {fields.map(field => (
-        <div key={field.id}>
-        <label htmlFor={field.id}>{field.label}</label>
-        <input
-            type={field.type}
-            id={field.id}
-            name={field.id}
-            placeholder={field.placeholder}
-            value={formData[field.id]}
-            onChange={handleEducation}
-        />
-        </div>
-       ))}
-      </form>
-      
-      </>  
-    );
 }

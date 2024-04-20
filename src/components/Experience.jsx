@@ -14,6 +14,10 @@ export default function Experience({ experience, handleExperience, addExperience
       <FormInput type="text" name="role" label="Role" value={experience.role} onChange={handleChange('role')} placeholder="Role"/>
       <FormInput type="date" name="from" label="From" value={experience.from} onChange={handleChange('from')} placeholder="From"/>
       <FormInput type="date" name="to" label="To" value={experience.to} onChange={handleChange('to')} placeholder="To"/>
+      <div className="form-group">
+        <label>Description</label>
+        <textarea type="text"  name="description" value={experience.description} onChange={handleChange('description')} placeholder='Description'></textarea>
+      </div>
       <button onClick={addExperience}>Add Experience</button>
     </div>
   );

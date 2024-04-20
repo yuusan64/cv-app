@@ -19,7 +19,7 @@ function App() {
 
   // Temporary states for adding new entries
   const [newEducation, setNewEducation] = useState({ school: '', degree: '', from: '', to: ''  });
-  const [newExperience, setNewExperience] = useState({ company: '', role: '', from: '', to: '' });
+  const [newExperience, setNewExperience] = useState({ company: '', role: '', from: '', to: '', description:'' });
 
   const handleGeneral = (event) => {
    
@@ -39,18 +39,46 @@ function App() {
       ...prev,
       education: [...prev.education, newEducation]
     }));
-    setNewEducation({ school: '', degree: '', from: '', to: '' }); // Reset the new education input fields
+    // Reset the new education input fields
+    setNewEducation({ school: '', degree: '', from: '', to: '' }); 
   };
 
-  // Function to add a new experience entry
+  const removeEducation = (index) => {
+    setCvData(prev => {
+      //Create copy of the education array
+      let newEducation = [...prev.education];
+      //Use splice on the copy to remove the item
+      newEducation.splice(index, 1);
+      //Return new state with the updated array
+      return {
+        ...prev,
+        education: newEducation
+      };
+    });
+  };
+  
+ 
   const addExperience = () => {
     setCvData(prev => ({
       ...prev,
       experience: [...prev.experience, newExperience]
     }));
-    setNewExperience({ company: '', role: '', from: '', to: '' }); // Reset the new experience input fields
+    setNewExperience({ company: '', role: '', from: '', to: '', description:'' }); 
   };
 
+  const removeExperience = (index) => {
+    setCvData(prev => {
+      //Create copy of the education array
+      let newExperience = [...prev.experience];
+      //Use splice on the copy to remove the item
+      newExperience.splice(index, 1);
+      //Return new state with the updated array
+      return {
+        ...prev,
+        experience: newExperience
+      };
+    });
+  };
   return (
     <div className="App">
       <div className="form-container">
@@ -70,8 +98,9 @@ function App() {
         />
       </div>
       <div className="cv-preview-container">
-        <CVPreview cvData={cvData} />
-      </div>
+    <CVPreview cvData={cvData} removeEducation={removeEducation} removeExperience={removeExperience} />
+</div>
+
     </div>
   );
 }

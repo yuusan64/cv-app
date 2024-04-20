@@ -1,7 +1,13 @@
 import React from 'react';
+import { format, parseISO } from 'date-fns';
 
 const CVPreview = ({ cvData, removeEducation, removeExperience }) => {
- console.log(cvData);
+  const formatDate = (dateStr) => {
+    // Formats the date to 'Month YYYY', e.g., 'January 2020'
+    return format(parseISO(dateStr), 'MMMM yyyy'); 
+  };
+
+
   return (
     <div className="cv-preview">
       
@@ -18,14 +24,21 @@ const CVPreview = ({ cvData, removeEducation, removeExperience }) => {
       <h2>Education</h2>
       {cvData.education.map((edu, index) => (
         <div key={index}>
-          <p>{edu.degree} at {edu.school}, {edu.from} - {edu.to}</p>
+          <div className='edu-title'>
+            <p>{edu.degree} at {edu.school}</p>
+            <p> {formatDate(edu.from)} - {formatDate(edu.to)}</p>
+          </div>
           <button onClick={() => removeEducation(index)}>Remove</button>
         </div>
       ))}
       <h2>Experience</h2>
       {cvData.experience.map((exp, index) => (
         <div key={index}>
-          <p>{exp.role} at {exp.company}, {exp.from} - {exp.to}</p>
+          <div className='exp-title'>
+            <p>{exp.role} at {exp.company}</p>
+            <p> {formatDate(exp.from)} - {formatDate(exp.to)}</p>
+          </div>
+          <p>{exp.description}</p>
           <button onClick={() => removeExperience(index)}>Remove</button>
         </div>
       ))}

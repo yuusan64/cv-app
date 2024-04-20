@@ -19,8 +19,8 @@ export default function Education({ education, handleEducation, addEducation }){
       <h2>Education</h2>
       <FormInput type="text" name="school" label="School" value={education.school} onChange={handleChange('school')} placeholder="School Name" />
       <FormInput type="text" name="degree" label="Degree" value={education.degree} onChange={handleChange('degree')} placeholder="Degree"/>
-      <FormInput type="date" name="from" label="From" value={education.from} onChange={handleChange('from')} placeholder="From"/>
-      <FormInput type="date" name="to" label="To" value={education.to} onChange={handleChange('to')} placeholder="To"/>
+      <FormInput type="month" name="from" label="From" value={education.from} onChange={handleChange('from')} placeholder="From"/>
+      <FormInput type="month" name="to" label="To" value={education.to} onChange={handleChange('to')} placeholder="To"/>
       <button onClick={addEducation}>Add Education</button>
     </div>
   );

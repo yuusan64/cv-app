@@ -1,27 +1,27 @@
-import { useState } from "react";
-import ReusableForm from "./ReusableForm";
 
-export default function Education({data, setData}){
+import React from 'react';
+import FormInput from './FormInput';
 
-const [formData, setFormData] = useState({
-    schoolName: '',
-    degree: '',
-    startDate: '',
-    endDate:'',
-    location:''
-})    
+export default function Education({ education, handleEducation, addEducation }){
 
-
-const fields = [
-    { id: 'schoolName', label: 'School',     type: 'text',  placeholder: 'Enter School / University' },
-    { id: 'degree',     label: 'Degree',     type: 'text',  placeholder: 'Enter Degree / Field Of Study'},
-    { id: 'startDate',  label: 'Start Date', type: 'date'},
-    { id: 'endDate',    label: 'End Date',   type: 'date'},
-    { id: 'location',   label: 'Location',   type: 'text',  placeholder: 'City, Country'},
-]
+  // Using separate handlers for each field
+  const handleChange = (field) => (e) => {
+    handleEducation(prev => {
+      const updated = { ...prev, [field]: e.target.value };
+      console.log("Updated state within updater:", updated);
+      return updated;
+    });
+  };
   
 
-  return <ReusableForm 
-  formData={data} setFormData={setData} fields={fields} title="Education" />;
-
+  return (
+    <div>
+      <h2>Education</h2>
+      <FormInput type="text" name="school" label="School" value={education.school} onChange={handleChange('school')} placeholder="School Name" />
+      <FormInput type="text" name="degree" label="Degree" value={education.degree} onChange={handleChange('degree')} placeholder="Degree"/>
+      <FormInput type="date" name="from" label="From" value={education.from} onChange={handleChange('from')} placeholder="From"/>
+      <FormInput type="date" name="to" label="To" value={education.to} onChange={handleChange('to')} placeholder="To"/>
+      <button onClick={addEducation}>Add Education</button>
+    </div>
+  );
 }

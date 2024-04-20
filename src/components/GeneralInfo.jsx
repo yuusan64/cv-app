@@ -1,15 +1,16 @@
-import { useState } from 'react'
-import ReusableForm from './ReusableForm';
+import React from 'react';
+import FormInput from './FormInput';
 
-export default function GeneralInfo({data, setData}){
-
-    const fields = [
-        { id: 'name',     label: 'Full Name',     type: 'text',   placeholder: 'Full Name' },
-        { id: 'email',    label: 'Email Address', type: 'email',  placeholder: 'Email Address'},
-        { id: 'phone',    label: 'Phone Number',  type: 'number', placeholder: 'Phone Number'},
-        { id: 'location', label: 'Location',      type: 'text',   placeholder: 'City, Country'},
-    ];
-    
-    return <ReusableForm formData={data} setFormData={setData} fields={fields} title="General Information" />;
+export default function GeneralInfoForm({ generalInfo, handleGeneral }){
+  return (
+    <div>
+      <h2>Personal Information</h2>
+      <FormInput type="text" name="name" label="Full Name" value={generalInfo.name} onChange={handleGeneral} placeholder="Enter Full Name"/>
+      <FormInput type="text" name="email" label="Email" value={generalInfo.email} onChange={handleGeneral} placeholder="Enter email"/>
+      <FormInput type="number" name="phone" label="Phone Number" value={generalInfo.phone} onChange={handleGeneral} placeholder="Enter phone number"/>
+      <FormInput type="text" name="location" label="Location" value={generalInfo.location} onChange={handleGeneral} placeholder="City, Country"/>
+    </div>
+  );
 }
+
 

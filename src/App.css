@@ -1,12 +1,179 @@
-div, form{
+/* 
+#root{
+  width: 100%;
+}
+.App {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: #f9f9f9;
 }
 
-form{
-  gap: 1em;
+.form-container, .cv-preview-container {
+  width: 48%;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
 }
 
-input{
-  height: 2em;
+
+.form-container h2, .cv-preview-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="email"], input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ 
+.cv-preview {
+  border-left: 2px solid #eee;
+  padding-left: 20px;
+}
+
+.cv-preview div {
+  margin-bottom: 10px;
+}  */
+
+#root {
+  width: 100%;
+}
+
+.App {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: #f9f9f9;
+}
+
+.form-container, .cv-preview-container {
+  width: 48%;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+}
+
+.form-container h2, .cv-preview-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="email"], input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.cv-preview {
+  border-left: 2px solid #eee;
+  padding-left: 20px;
+  font-family: Arial, sans-serif; /* Ensures a clean, professional font is used */
+}
+
+.cv-preview h1, .cv-preview h3 {
+  margin: 0 0 10px 0; /* Tightens up the spacing around headings for better grouping */
+}
+
+.cv-preview h2 {
+  margin-top: 20px; /* Provides clear section demarcations */
+}
+
+.cv-preview div {
+  margin-bottom: 10px;
+  background: #f0f0f0; /* Adds a slight background to each entry for better legibility */
+  padding: 10px;
+  border-radius: 5px; /* Softens the overall look */
+}
+
+.cv-preview p {
+  margin: 0; /* Removes default paragraph spacing to control layout more precisely */
+}
+
+.cv-preview button {
+  margin-top: 5px; /* Ensures button doesn't sit too tightly against content */
+}
+
+.general-sub{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cv-preview h1{
+  text-align: center;
 }
